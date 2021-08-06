@@ -4,6 +4,7 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import PaymentIcon from "@material-ui/icons/Payment";
 
 import "./Header.scss";
+import Dropdown from "../Dropdown/Dropdown";
 
 export default function Header() {
   const [status, setStatus] = useState(false);
@@ -27,10 +28,12 @@ export default function Header() {
           <span>45 - 65 min</span>
         </div>
 
-        <div className="payment-methods">
-          <span>Formas de pagamento</span>
-          <PaymentIcon className="payment-icon" />
-        </div>
+        <Dropdown
+          title="Formas de pagamento"
+          item1="Dinheiro"
+          item2="Visa"
+          item3="Mastercard"
+        />
       </div>
 
       <img
