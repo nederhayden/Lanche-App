@@ -2,10 +2,14 @@ import "./Dropdown.scss";
 
 type PropsItem = {
   title: string;
-  icon: Object;
-  item1: string;
-  item2: string;
-  item3: string;
+  icon?: Object;
+  item1?: string;
+  item2?: string;
+  item3?: string;
+  item4?: string;
+  item5?: string;
+  item6?: string;
+  item7?: string;
 };
 
 export default function Dropdown(props: PropsItem) {

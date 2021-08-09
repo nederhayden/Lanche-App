@@ -8,6 +8,10 @@ import "./Header.scss";
 
 export default function Header() {
   const [status, setStatus] = useState(false);
+  const [logo, setLogo] = useState(
+    "https://image.freepik.com/vetores-gratis/astronauta-bonito-abraco-donut-dos-desenhos-animados-icone-ilustracao-vetorial-conceito-de-icone-de-comida-de-ciencia-isolado-vetor-premium-estilo-flat-cartoon_138676-3329.jpg"
+  );
+  const [snackName, setSnackName] = useState("Lanche APP");
 
   return (
     <Box className="Header">
@@ -20,6 +24,16 @@ export default function Header() {
               status ? { background: "#05d305" } : { background: "#ff0000" }
             }
           ></div>
+          <Dropdown
+            title={"Veja os horários"}
+            item1={"DOM 17:00 as 23:00"}
+            item2={"SEG 17:00 as 23:00"}
+            item3={"TER 17:00 as 23:00"}
+            item4={"QUA 17:00 as 23:00"}
+            item5={"QUI 17:00 as 23:00"}
+            item6={"SEX 17:00 as 23:00"}
+            item7={"SAB 17:00 as 23:00"}
+          />
         </div>
 
         <div className="delivery-time">
@@ -37,12 +51,9 @@ export default function Header() {
         />
       </div>
 
-      <img
-        src="https://image.freepik.com/vetores-gratis/astronauta-bonito-abraco-donut-dos-desenhos-animados-icone-ilustracao-vetorial-conceito-de-icone-de-comida-de-ciencia-isolado-vetor-premium-estilo-flat-cartoon_138676-3329.jpg"
-        alt="Logo"
-      />
+      <img src={logo} alt="Logo" />
 
-      <h1>Lanche App</h1>
+      <h1>{snackName}</h1>
 
       <button>Entrar</button>
     </Box>
