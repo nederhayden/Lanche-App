@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Box } from "@material-ui/core";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import PaymentIcon from "@material-ui/icons/Payment";
+import Dropdown from "../Dropdown/Dropdown";
 
 import "./Header.scss";
-import Dropdown from "../Dropdown/Dropdown";
 
 export default function Header() {
   const [status, setStatus] = useState(false);
@@ -30,6 +30,7 @@ export default function Header() {
 
         <Dropdown
           title="Formas de pagamento"
+          icon={React.createElement(PaymentIcon)}
           item1="Dinheiro"
           item2="Visa"
           item3="Mastercard"

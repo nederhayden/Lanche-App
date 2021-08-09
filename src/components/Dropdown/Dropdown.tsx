@@ -1,8 +1,8 @@
-import PaymentIcon from "@material-ui/icons/Payment";
 import "./Dropdown.scss";
 
 type PropsItem = {
   title: string;
+  icon: Object;
   item1: string;
   item2: string;
   item3: string;
@@ -15,7 +15,7 @@ export default function Dropdown(props: PropsItem) {
         <li>
           <div className="dropdown-title">
             <span>{props.title}</span>
-            <PaymentIcon />
+            {props.icon}
           </div>
           <ul className="dropdown__sub-menu">
             <li>
