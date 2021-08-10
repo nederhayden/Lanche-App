@@ -1,6 +1,37 @@
+$background: #2e2d2d;
+$color-text: #fff;
+
 .Body {
-  background: yellow;
+  background: $background;
   height: 40rem;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  display: flex;
+}
+
+.Category {
+  background: $color-text;
+  width: 70%;
+  margin: 1rem 1rem 1rem 28rem;
+  border-radius: 6px;
+
+  .input-and-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .input-outlined {
+      width: 90%;
+      margin: 0.6rem;
+    }
+
+    .filter-list-icon {
+      margin: 0.6rem;
+    }
+  }
+}
+
+.Cart {
+  background: $color-text;
+  width: 30%;
+  margin: 1rem 28rem 1rem 1rem;
+  border-radius: 6px;
 }

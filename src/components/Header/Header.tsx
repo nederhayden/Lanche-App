@@ -8,10 +8,10 @@ import "./Header.scss";
 
 export default function Header() {
   const [status, setStatus] = useState(false);
+  const [snackName, setSnackName] = useState("Lanche APP");
   const [logo, setLogo] = useState(
     "https://image.freepik.com/vetores-gratis/astronauta-bonito-abraco-donut-dos-desenhos-animados-icone-ilustracao-vetorial-conceito-de-icone-de-comida-de-ciencia-isolado-vetor-premium-estilo-flat-cartoon_138676-3329.jpg"
   );
-  const [snackName, setSnackName] = useState("Lanche APP");
 
   return (
     <Box className="Header">
