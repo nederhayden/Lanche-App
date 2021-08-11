@@ -5,33 +5,57 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
-import { ExpandLess, ExpandMore, StarBorder } from "@material-ui/icons";
-import LabelImportantIcon from "@material-ui/icons/LabelImportant";
+import { LabelImportant, ExpandLess, ExpandMore } from "@material-ui/icons";
+
 import { useState } from "react";
 import "./Menu.scss";
 
-export default function Menu() {
-  const [open, setOpen] = useState(false);
+export default function CheckboxList() {
+  const [products, setProducts] = useState([
+    { id: 0, name: "Sushi" },
+    { id: 1, name: "Pizza" },
+    { id: 2, name: "Hamburguer" },
+    { id: 3, name: "Bebidas" },
+  ]);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const [checked, setChecked] = useState([0]);
+
+  const handleToggle = (value: number) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    setChecked(newChecked);
   };
+
   return (
-    <List component="nav">
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <LabelImportantIcon />
-        </ListItemIcon>
-        <ListItemText primary="Sushi" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button>
-            <ListItemText primary="Temaki" />
-          </ListItem>
-        </List>
-      </Collapse>
+    <List>
+      {products.map((product, value) => {
+        return (
+          <List component="nav">
+            <ListItem button onClick={handleToggle(value)}>
+              <ListItemIcon>
+                <LabelImportant />
+              </ListItemIcon>
+              <ListItemText primary={product.name} />
+            </ListItem>
+            {/* {open ? <ExpandLess /> : <ExpandMore />} */}
+            {checked.indexOf(value) !== -1 ? (
+              <Collapse in={true} timeout="auto" unmountOnExit>
+                <ListItem button>
+                  <ListItemText primary="Item" />
+                </ListItem>
+              </Collapse>
+            ) : (
+              false
+            )}
+          </List>
+        );
+      })}
     </List>
   );
 }
