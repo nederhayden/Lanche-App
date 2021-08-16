@@ -1,4 +1,42 @@
-.dropdown-menu {
-  display: flex;
-  flex-direction: column;
+$color-text: #fff;
+$background: #fff;
+$color-border: #000;
+
+.title-category {
+  font-size: 1.4rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin: 0.6rem;
+
+  .item {
+    display: flex;
+    background: $background;
+    border-radius: 6px;
+    padding: 0.4rem;
+
+    img {
+      display: flex;
+      align-items: center;
+      height: 6rem;
+      border-radius: 6px;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 0.4rem;
+
+      .price-and-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
 }

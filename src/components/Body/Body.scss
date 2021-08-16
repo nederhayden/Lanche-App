@@ -1,14 +1,15 @@
 $background: #2e2d2d;
-$color-text: #fff;
+$background-category: #f0f0f0;
+$color-text: #ffffff;
 
 .Body {
   background: $background;
-  height: 40rem;
   display: flex;
+  height: 100vh;
 }
 
 .Category {
-  background: $color-text;
+  background: $background-category;
   width: 70%;
   margin: 1rem 1rem 1rem 28rem;
   border-radius: 6px;

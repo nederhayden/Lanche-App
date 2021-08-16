@@ -1,24 +1,33 @@
-import {
-  Collapse,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@material-ui/core";
-import { LabelImportant, ExpandLess, ExpandMore } from "@material-ui/icons";
-
+import { Collapse, List, ListItem, ListItemIcon } from "@material-ui/core";
+import { AddCircle, LabelImportant } from "@material-ui/icons";
 import { useState } from "react";
+import { useEffect } from "react";
+import api from "../../services/api";
 import "./Menu.scss";
 
 export default function CheckboxList() {
-  const [products, setProducts] = useState([
-    { id: 0, name: "Sushi" },
-    { id: 1, name: "Pizza" },
-    { id: 2, name: "Hamburguer" },
-    { id: 3, name: "Bebidas" },
-  ]);
-
+  const [categories, setCategories] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
+  const [urlCategory, setUrlCategory] = useState("/categoria");
+  const [urlProducts, setUrlProducts] = useState("/produto");
   const [checked, setChecked] = useState([0]);
+
+  async function fetchDataCategories() {
+    const response = await api.get(urlCategory);
+
+    setCategories(response.data.categorias);
+  }
+
+  async function fetchDataProducts() {
+    const response = await api.get(urlProducts);
+
+    setProducts(response.data.produtos);
+  }
+
+  useEffect(() => {
+    fetchDataCategories();
+    fetchDataProducts();
+  }, []);
 
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
@@ -34,21 +43,44 @@ export default function CheckboxList() {
 
   return (
     <List>
-      {products.map((product, value) => {
+      {categories.map((category, value) => {
         return (
-          <List component="nav">
+          <List key={category.id} component="nav">
             <ListItem button onClick={handleToggle(value)}>
               <ListItemIcon>
                 <LabelImportant />
               </ListItemIcon>
-              <ListItemText primary={product.name} />
+              <strong className="title-category">{category.nome}</strong>
             </ListItem>
-            {/* {open ? <ExpandLess /> : <ExpandMore />} */}
             {checked.indexOf(value) !== -1 ? (
-              <Collapse in={true} timeout="auto" unmountOnExit>
-                <ListItem button>
-                  <ListItemText primary="Item" />
-                </ListItem>
+              <Collapse
+                className="collapse"
+                in={true}
+                timeout="auto"
+                unmountOnExit
+              >
+                <div className="card">
+                  {products.map((product) => {
+                    return (
+                      <div className="item">
+                        <div className="img">
+                          <img
+                            src="https://image.freepik.com/vetores-gratis/astronauta-bonito-abraco-donut-dos-desenhos-animados-icone-ilustracao-vetorial-conceito-de-icone-de-comida-de-ciencia-isolado-vetor-premium-estilo-flat-cartoon_138676-3329.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="item-details">
+                          <h3>{product.identificacao}</h3>
+                          <dl>{product.descricao}</dl>
+                          <div className="price-and-button">
+                            <span>{`R$ ${product.valor}`}</span>
+                            <AddCircle />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </Collapse>
             ) : (
               false
