@@ -1,7 +1,8 @@
 import { Box, InputAdornment, TextField } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import SearchIcon from "@material-ui/icons/Search";
-import Menu from "../Menu/Menu";
+import Menu from "./Menu/Menu";
+import Cart from "./Cart/Cart";
 
 import "./Body.scss";
 
@@ -27,7 +28,7 @@ export default function Body() {
         </Box>
         <Menu />
       </Box>
-      <Box className="Cart">Carrinho</Box>
+      <Cart />
     </Box>
   );
 }

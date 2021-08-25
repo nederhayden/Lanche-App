@@ -1,0 +1,26 @@
+$background: #2e2d2d;
+$background-category: #f0f0f0;
+$color-text: #ffffff;
+
+.Cart {
+  background: $color-text;
+  width: 30%;
+  margin: 1rem 28rem 1rem 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+
+  .cart-empty {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    dl {
+      font-size: 1.5rem;
+    }
+
+    .cart-icon-empty {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+}

@@ -1,8 +1,7 @@
+import { useState, useEffect, useContext } from "react";
 import { Collapse, List, ListItem, ListItemIcon } from "@material-ui/core";
 import { AddCircle, LabelImportant } from "@material-ui/icons";
-import { useState } from "react";
-import { useEffect } from "react";
-import api from "../../services/api";
+import api from "../../../services/api";
 import "./Menu.scss";
 
 export default function CheckboxList() {
@@ -62,7 +61,7 @@ export default function CheckboxList() {
                 <div className="card">
                   {products.map((product) => {
                     return (
-                      <div className="item">
+                      <div key={product.id} className="item">
                         <div className="img">
                           <img
                             src="https://image.freepik.com/vetores-gratis/astronauta-bonito-abraco-donut-dos-desenhos-animados-icone-ilustracao-vetorial-conceito-de-icone-de-comida-de-ciencia-isolado-vetor-premium-estilo-flat-cartoon_138676-3329.jpg"
