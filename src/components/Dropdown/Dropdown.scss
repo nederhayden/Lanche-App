@@ -1,0 +1,30 @@
+.dropdown {
+  list-style: none;
+
+  .dropdown-title {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dropdown span {
+  display: block;
+  padding-top: 0;
+  padding-right: 0.4rem;
+}
+
+.dropdown__sub-menu {
+  list-style: none;
+  position: absolute;
+  left: -9999px;
+  font-size: 1.5rem;
+  padding: 0.6rem 0;
+}
+
+.dropdown li:hover ul {
+  left: 0;
+}
+
+.dropdown li:hover span {
+  background: rgba(70, 70, 70, 0.9);
+}
