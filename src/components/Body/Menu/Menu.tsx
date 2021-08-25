@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Collapse, List, ListItem, ListItemIcon } from "@material-ui/core";
-import { AddCircle, LabelImportant } from "@material-ui/icons";
+import { AddShoppingCart, LabelImportant } from "@material-ui/icons";
 import api from "../../../services/api";
 import "./Menu.scss";
 
@@ -73,7 +73,7 @@ export default function CheckboxList() {
                           <dl>{product.descricao}</dl>
                           <div className="price-and-button">
                             <span>{`R$ ${product.valor}`}</span>
-                            <AddCircle />
+                            <AddShoppingCart style={{ color: "#56be72" }} />
                           </div>
                         </div>
                       </div>

@@ -1,9 +1,10 @@
 $background: #2e2d2d;
 $background-category: #f0f0f0;
+$background-card: #fff;
 $color-text: #ffffff;
 
 .Cart {
-  background: $color-text;
+  background: $background-category;
   width: 30%;
   margin: 1rem 28rem 1rem 1rem;
   padding: 1rem;
@@ -23,4 +24,44 @@ $color-text: #ffffff;
       width: 3rem;
     }
   }
+}
+
+.card-cart {
+  .item {
+    display: flex;
+    background: $background-card;
+    border-radius: 6px;
+    padding: 0.4rem;
+
+    img {
+      display: flex;
+      align-items: center;
+      height: 6rem;
+      border-radius: 6px;
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 0.4rem;
+
+      .price-and-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+button {
+  background: #56be72;
+  color: $color-text;
+  border: none;
+  border-radius: 6px;
+  height: 2.5rem;
+  width: 16rem;
+  margin: 1rem;
 }
